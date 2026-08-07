@@ -1,0 +1,45 @@
+[2026-05-07 17:34:27 UTC] Reddit Daily Brief pipeline starting — 2026-05-07
+[2026-05-07 17:34:27 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-05-07 17:34:35 UTC]   Tokens refreshed:  Air...
+  Cookies: 32 extracted
+  Tokens: CSRF=ALkAtnLGj4OeHBptUEJi..., SID=833509932710206516
+Done.
+[2026-05-07 17:34:35 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-05-07 17:34:35 UTC]   Bridge result: 
+[2026-05-07 17:34:35 UTC]   Cookie refresh failed — using existing cookies file
+[2026-05-07 17:34:35 UTC] === Harvest 24h Reddit ===
+[2026-05-07 17:34:35 UTC] FAILED: Harvest 24h Reddit (exit 1)
+[2026-05-07 17:34:35 UTC] Harvest failed — aborting pipeline
+[2026-05-07 17:35:38 UTC] Reddit Daily Brief pipeline starting — 2026-05-07
+[2026-05-07 17:35:38 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-05-07 17:35:41 UTC]   Tokens refreshed:  Air...
+  Cookies: 32 extracted
+  Tokens: CSRF=ALkAtnLGj4OeHBptUEJi..., SID=833509932710206516
+Done.
+[2026-05-07 17:35:41 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-05-07 17:35:41 UTC]   Bridge result: 
+[2026-05-07 17:35:41 UTC]   Cookie refresh failed — using existing cookies file
+[2026-05-07 17:35:41 UTC] === Harvest 24h Reddit ===
+[2026-05-07 17:35:41 UTC] === Convert to Markdown ===
+[2026-05-07 17:35:41 UTC] === Sync to NotebookLM ===
+[2026-05-07 17:35:48 UTC] Waiting 30s for NotebookLM to index sources...
+[2026-05-07 17:36:18 UTC] === Query NotebookLM + compose ===
+[2026-05-07 17:36:21 UTC] === Archive sync ===
+[2026-05-07 17:36:29 UTC] === Generate PDF ===
+[2026-05-07 17:36:30 UTC]   Sending email to niveshdandyan@gmail.com...
+[2026-05-07 17:36:31 UTC]   Email sent: {
+  "success": true,
+  "message_id": "0100019e03833698-0dc0e75e-787f-4648-aafe-2a07eeeeae7c-000000@e
+[2026-05-07 17:36:31 UTC] Pipeline complete for 2026-05-07
+[2026-05-07 17:36:31 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-05-07.log
+[2026-05-07 17:36:31 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-05-07.pdf
+[2026-05-07 23:21:18 UTC] Reddit Daily Brief pipeline starting — 2026-05-07
+[2026-05-07 23:21:18 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-05-07 23:21:19 UTC]   Token refresh warning (continuing): Refresh failed: 'data'
+
+[2026-05-07 23:21:19 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-05-07 23:21:19 UTC]   Bridge result: 
+[2026-05-07 23:21:19 UTC]   Cookie refresh failed — using existing cookies file
+[2026-05-07 23:21:19 UTC] === Harvest 24h Reddit ===
+[2026-05-07 23:21:20 UTC] FAILED: Harvest 24h Reddit (exit 1)
+[2026-05-07 23:21:20 UTC] Harvest failed — aborting pipeline

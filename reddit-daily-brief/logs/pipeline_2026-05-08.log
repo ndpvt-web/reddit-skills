@@ -1,0 +1,30 @@
+[2026-05-08 23:22:09 UTC] Reddit Daily Brief pipeline starting — 2026-05-08
+[2026-05-08 23:22:09 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-05-08 23:22:13 UTC]   Tokens refreshed: ir...
+  Cookies: 31 extracted
+  Tokens: CSRF=ABn2ubdT-0tGv7xzakHh..., SID=-1748935457705588130
+Done.
+[2026-05-08 23:22:13 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-05-08 23:58:29 UTC] Reddit Daily Brief pipeline starting — 2026-05-08
+[2026-05-08 23:58:29 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-05-08 23:58:31 UTC]   Tokens refreshed: ir...
+  Cookies: 31 extracted
+  Tokens: CSRF=ABn2ubdT-0tGv7xzakHh..., SID=-1748935457705588130
+Done.
+[2026-05-08 23:58:31 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-05-08 23:58:31 UTC]   Bridge result: 
+[2026-05-08 23:58:32 UTC]   Cookie refresh failed — using existing cookies file
+[2026-05-08 23:58:32 UTC] === Harvest skipped ===
+[2026-05-08 23:58:32 UTC] === Convert to Markdown ===
+[2026-05-08 23:58:32 UTC] === Sync to NotebookLM ===
+[2026-05-08 23:59:03 UTC] Waiting 30s for NotebookLM to index sources...
+[2026-05-08 23:59:33 UTC] === Query NotebookLM + compose ===
+[2026-05-09 00:03:21 UTC] === Archive sync ===
+[2026-05-09 00:03:56 UTC] === Generate PDF ===
+[2026-05-09 00:03:57 UTC]   Sending email to niveshdandyan@gmail.com...
+[2026-05-09 00:03:58 UTC]   Email sent: {
+  "success": true,
+  "message_id": "0100019e0a0c4a24-b2ed95dd-41b6-453a-af95-60a655014a26-000000@e
+[2026-05-09 00:03:58 UTC] Pipeline complete for 2026-05-08
+[2026-05-09 00:03:58 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-05-08.log
+[2026-05-09 00:03:58 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-05-08.pdf

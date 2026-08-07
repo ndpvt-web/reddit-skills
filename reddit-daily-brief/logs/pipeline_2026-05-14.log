@@ -1,0 +1,21 @@
+[2026-05-14 23:22:48 UTC] Reddit Daily Brief pipeline starting — 2026-05-14
+[2026-05-14 23:22:48 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-05-14 23:22:48 UTC]   Token refresh warning (continuing): Refresh failed: 'data'
+
+[2026-05-14 23:22:48 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-05-14 23:22:48 UTC]   Bridge result: 
+[2026-05-14 23:22:48 UTC]   Cookie refresh failed — using existing cookies file
+[2026-05-14 23:22:48 UTC] === Harvest 24h Reddit ===
+[2026-05-14 23:22:49 UTC] === Convert to Markdown ===
+[2026-05-14 23:22:49 UTC] === Sync to NotebookLM ===
+[2026-05-14 23:23:21 UTC] Waiting 30s for NotebookLM to index sources...
+[2026-05-14 23:23:51 UTC] === Query NotebookLM + compose ===
+[2026-05-14 23:33:14 UTC] === Archive sync ===
+[2026-05-14 23:33:51 UTC] === Generate PDF ===
+[2026-05-14 23:33:52 UTC]   Sending email to niveshdandyan@gmail.com...
+[2026-05-14 23:33:53 UTC]   Email sent: {
+  "success": true,
+  "message_id": "0100019e28d6e737-78006ee8-9f6d-4601-b4b8-d8aeb3561a51-000000@e
+[2026-05-14 23:33:53 UTC] Pipeline complete for 2026-05-14
+[2026-05-14 23:33:53 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-05-14.log
+[2026-05-14 23:33:53 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-05-14.pdf

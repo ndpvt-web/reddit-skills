@@ -1,0 +1,221 @@
+  [info] No cookies file found — using public Reddit API
+
+[1/25] r/claudeai  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/claudeai (cutoff: 2026-07-14T23:21:24.989042)...
+    50 posts collected from r/claudeai (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/claudeai.json  (86KB)
+  [cooldown] 51s before next...
+
+[2/25] r/ClaudeCode  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/ClaudeCode (cutoff: 2026-07-14T23:21:24.989042)...
+    50 posts collected from r/ClaudeCode (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/ClaudeCode.json  (69KB)
+  [cooldown] 53s before next...
+
+[3/25] r/claude  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/claude (cutoff: 2026-07-14T23:21:24.989042)...
+    31 posts collected from r/claude (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/claude.json  (42KB)
+  [cooldown] 56s before next...
+
+[4/25] r/Anthropic  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/Anthropic (cutoff: 2026-07-14T23:21:24.989042)...
+    37 posts collected from r/Anthropic (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/Anthropic.json  (73KB)
+  [cooldown] 52s before next...
+
+[5/25] r/claudexplorers  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/claudexplorers (cutoff: 2026-07-14T23:21:24.989042)...
+    13 posts collected from r/claudexplorers (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/claudexplorers.json  (25KB)
+  [cooldown] 56s before next...
+
+[6/25] r/openclaw  (OpenClaw Ecosystem)
+  [rss] Fetching r/openclaw (cutoff: 2026-07-14T23:21:24.989042)...
+    10 posts collected from r/openclaw (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/openclaw.json  (14KB)
+  [cooldown] 48s before next...
+
+[7/25] r/openclawhosting  (OpenClaw Ecosystem)
+  [rss] Fetching r/openclawhosting (cutoff: 2026-07-14T23:21:24.989042)...
+    0 posts collected from r/openclawhosting (rss, last 24h)
+  No posts in last 24h — skipping
+
+[8/25] r/openclawsetup  (OpenClaw Ecosystem)
+  [rss] Fetching r/openclawsetup (cutoff: 2026-07-14T23:21:24.989042)...
+    [429 rss] throttled — waiting 35s (attempt 1/5)
+    0 posts collected from r/openclawsetup (rss, last 24h)
+  No posts in last 24h — skipping
+
+[9/25] r/opencodeCLI  (OpenClaw Ecosystem)
+  [rss] Fetching r/opencodeCLI (cutoff: 2026-07-14T23:21:24.989042)...
+    [429 rss] throttled — waiting 36s (attempt 1/5)
+    19 posts collected from r/opencodeCLI (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/opencodeCLI.json  (18KB)
+  [cooldown] 52s before next...
+
+[10/25] r/Agent_AI  (AI Agents & Builders)
+  [rss] Fetching r/Agent_AI (cutoff: 2026-07-14T23:21:24.989042)...
+    [429 rss] throttled — waiting 33s (attempt 1/5)
+    7 posts collected from r/Agent_AI (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/Agent_AI.json  (9KB)
+  [cooldown] 54s before next...
+
+[11/25] r/AgentsOfAI  (AI Agents & Builders)
+  [rss] Fetching r/AgentsOfAI (cutoff: 2026-07-14T23:21:24.989042)...
+    10 posts collected from r/AgentsOfAI (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/AgentsOfAI.json  (18KB)
+  [cooldown] 53s before next...
+
+[12/25] r/AI_Agents  (AI Agents & Builders)
+  [rss] Fetching r/AI_Agents (cutoff: 2026-07-14T23:21:24.989042)...
+    50 posts collected from r/AI_Agents (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/AI_Agents.json  (96KB)
+  [cooldown] 58s before next...
+
+[13/25] r/alagents  (AI Agents & Builders)
+  [rss] Fetching r/alagents (cutoff: 2026-07-14T23:21:24.989042)...
+    0 posts collected from r/alagents (rss unavailable)
+  No posts in last 24h — skipping
+
+[14/25] r/AI_Application  (AI Agents & Builders)
+  [rss] Fetching r/AI_Application (cutoff: 2026-07-14T23:21:24.989042)...
+    [429 rss] throttled — waiting 39s (attempt 1/5)
+    [429 rss] throttled — waiting 65s (attempt 2/5)
+    0 posts collected from r/AI_Application (rss, last 24h)
+  No posts in last 24h — skipping
+
+[15/25] r/Agentic_SEO  (AI Agents & Builders)
+  [rss] Fetching r/Agentic_SEO (cutoff: 2026-07-14T23:21:24.989042)...
+    [429 rss] throttled — waiting 36s (attempt 1/5)
+    7 posts collected from r/Agentic_SEO (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/Agentic_SEO.json  (11KB)
+  [cooldown] 57s before next...
+
+[16/25] r/AiAutomations  (AI Agents & Builders)
+  [rss] Fetching r/AiAutomations (cutoff: 2026-07-14T23:21:24.989042)...
+    17 posts collected from r/AiAutomations (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/AiAutomations.json  (26KB)
+  [cooldown] 52s before next...
+
+[17/25] r/AiBuilders  (AI Agents & Builders)
+  [rss] Fetching r/AiBuilders (cutoff: 2026-07-14T23:21:24.989042)...
+    8 posts collected from r/AiBuilders (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/AiBuilders.json  (14KB)
+  [cooldown] 56s before next...
+
+[18/25] r/AIAssisted  (AI Agents & Builders)
+  [rss] Fetching r/AIAssisted (cutoff: 2026-07-14T23:21:24.989042)...
+    5 posts collected from r/AIAssisted (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/AIAssisted.json  (6KB)
+  [cooldown] 56s before next...
+
+[19/25] r/LangChain  (AI Agents & Builders)
+  [rss] Fetching r/LangChain (cutoff: 2026-07-14T23:21:24.989042)...
+    26 posts collected from r/LangChain (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/LangChain.json  (43KB)
+  [cooldown] 51s before next...
+
+[20/25] r/n8n_ai_agents  (AI Agents & Builders)
+  [rss] Fetching r/n8n_ai_agents (cutoff: 2026-07-14T23:21:24.989042)...
+    5 posts collected from r/n8n_ai_agents (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/n8n_ai_agents.json  (8KB)
+  [cooldown] 57s before next...
+
+[21/25] r/n8nforbeginners  (AI Agents & Builders)
+  [rss] Fetching r/n8nforbeginners (cutoff: 2026-07-14T23:21:24.989042)...
+    4 posts collected from r/n8nforbeginners (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/n8nforbeginners.json  (10KB)
+  [cooldown] 50s before next...
+
+[22/25] r/lovable  (AI Products & Tools)
+  [rss] Fetching r/lovable (cutoff: 2026-07-14T23:21:24.989042)...
+    11 posts collected from r/lovable (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/lovable.json  (14KB)
+  [cooldown] 48s before next...
+
+[23/25] r/notebooklm  (AI Products & Tools)
+  [rss] Fetching r/notebooklm (cutoff: 2026-07-14T23:21:24.989042)...
+    [429 rss] throttled — waiting 38s (attempt 1/5)
+    5 posts collected from r/notebooklm (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/notebooklm.json  (7KB)
+  [cooldown] 55s before next...
+
+[24/25] r/perplexity_ai  (AI Products & Tools)
+  [rss] Fetching r/perplexity_ai (cutoff: 2026-07-14T23:21:24.989042)...
+    6 posts collected from r/perplexity_ai (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/perplexity_ai.json  (8KB)
+  [cooldown] 51s before next...
+
+[25/25] r/personalfinance  (Other)
+  [rss] Fetching r/personalfinance (cutoff: 2026-07-14T23:21:24.989042)...
+    50 posts collected from r/personalfinance (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only
+
+  0 comments collected.
+  Saved: outputs/daily/personalfinance.json  (77KB)
+
+=== Harvest complete ===
+  Subreddits: 25 | Posts: 421 | Comments: 0
+  Output: outputs/daily
+  Manifest: outputs/daily/_manifest.json

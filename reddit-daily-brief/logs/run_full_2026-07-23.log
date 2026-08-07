@@ -1,0 +1,326 @@
+[run_full] start 2026-07-23 23:21:22
+[run_full] backed up prior daily JSONs
+[run_full] harvesting...
+  [auth] cookies file: /home/node/.claude/skills/reddit-daily-brief/config/reddit_cookies.json
+  [warn] No token_v2 in cookies — using public Reddit API
+  [harvest] mode=rss
+
+[1/25] r/claudeai  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/claudeai (cutoff: 2026-07-22T23:21:22.381653)...
+    50 posts collected from r/claudeai (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/claudeai.json  (99KB)
+  [cooldown] 49s before next...
+
+[2/25] r/ClaudeCode  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/ClaudeCode (cutoff: 2026-07-22T23:21:22.381653)...
+    50 posts collected from r/ClaudeCode (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/ClaudeCode.json  (69KB)
+  [cooldown] 52s before next...
+
+[3/25] r/claude  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/claude (cutoff: 2026-07-22T23:21:22.381653)...
+    24 posts collected from r/claude (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/claude.json  (32KB)
+  [cooldown] 48s before next...
+
+[4/25] r/Anthropic  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/Anthropic (cutoff: 2026-07-22T23:21:22.381653)...
+    [429 rss] throttled — waiting 38s (attempt 1/5)
+    38 posts collected from r/Anthropic (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/Anthropic.json  (46KB)
+  [cooldown] 51s before next...
+
+[5/25] r/claudexplorers  (Claude & Anthropic Ecosystem)
+  [rss] Fetching r/claudexplorers (cutoff: 2026-07-22T23:21:22.381653)...
+    9 posts collected from r/claudexplorers (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/claudexplorers.json  (15KB)
+  [cooldown] 49s before next...
+
+[6/25] r/openclaw  (OpenClaw Ecosystem)
+  [rss] Fetching r/openclaw (cutoff: 2026-07-22T23:21:22.381653)...
+    11 posts collected from r/openclaw (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/openclaw.json  (20KB)
+  [cooldown] 54s before next...
+
+[7/25] r/openclawhosting  (OpenClaw Ecosystem)
+  [rss] Fetching r/openclawhosting (cutoff: 2026-07-22T23:21:22.381653)...
+    0 posts collected from r/openclawhosting (rss, last 24h)
+  No posts in last 24h — skipping
+
+[8/25] r/openclawsetup  (OpenClaw Ecosystem)
+  [rss] Fetching r/openclawsetup (cutoff: 2026-07-22T23:21:22.381653)...
+    [429 rss] throttled — waiting 34s (attempt 1/5)
+    [429 rss] throttled — waiting 66s (attempt 2/5)
+    0 posts collected from r/openclawsetup (rss, last 24h)
+  No posts in last 24h — skipping
+
+[9/25] r/opencodeCLI  (OpenClaw Ecosystem)
+  [rss] Fetching r/opencodeCLI (cutoff: 2026-07-22T23:21:22.381653)...
+    [429 rss] throttled — waiting 37s (attempt 1/5)
+    13 posts collected from r/opencodeCLI (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/opencodeCLI.json  (14KB)
+  [cooldown] 56s before next...
+
+[10/25] r/Agent_AI  (AI Agents & Builders)
+  [rss] Fetching r/Agent_AI (cutoff: 2026-07-22T23:21:22.381653)...
+    2 posts collected from r/Agent_AI (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/Agent_AI.json  (3KB)
+  [cooldown] 49s before next...
+
+[11/25] r/AgentsOfAI  (AI Agents & Builders)
+  [rss] Fetching r/AgentsOfAI (cutoff: 2026-07-22T23:21:22.381653)...
+    7 posts collected from r/AgentsOfAI (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/AgentsOfAI.json  (15KB)
+  [cooldown] 51s before next...
+
+[12/25] r/AI_Agents  (AI Agents & Builders)
+  [rss] Fetching r/AI_Agents (cutoff: 2026-07-22T23:21:22.381653)...
+    50 posts collected from r/AI_Agents (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/AI_Agents.json  (116KB)
+  [cooldown] 48s before next...
+
+[13/25] r/alagents  (AI Agents & Builders)
+  [rss] Fetching r/alagents (cutoff: 2026-07-22T23:21:22.381653)...
+    [429 rss] throttled — waiting 35s (attempt 1/5)
+    0 posts collected from r/alagents (rss unavailable)
+  No posts in last 24h — skipping
+
+[14/25] r/AI_Application  (AI Agents & Builders)
+  [rss] Fetching r/AI_Application (cutoff: 2026-07-22T23:21:22.381653)...
+    [429 rss] throttled — waiting 33s (attempt 1/5)
+    1 posts collected from r/AI_Application (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/AI_Application.json  (1KB)
+  [cooldown] 52s before next...
+
+[15/25] r/Agentic_SEO  (AI Agents & Builders)
+  [rss] Fetching r/Agentic_SEO (cutoff: 2026-07-22T23:21:22.381653)...
+    6 posts collected from r/Agentic_SEO (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/Agentic_SEO.json  (9KB)
+  [cooldown] 49s before next...
+
+[16/25] r/AiAutomations  (AI Agents & Builders)
+  [rss] Fetching r/AiAutomations (cutoff: 2026-07-22T23:21:22.381653)...
+    [429 rss] throttled — waiting 35s (attempt 1/5)
+    23 posts collected from r/AiAutomations (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/AiAutomations.json  (41KB)
+  [cooldown] 53s before next...
+
+[17/25] r/AiBuilders  (AI Agents & Builders)
+  [rss] Fetching r/AiBuilders (cutoff: 2026-07-22T23:21:22.381653)...
+    8 posts collected from r/AiBuilders (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/AiBuilders.json  (8KB)
+  [cooldown] 56s before next...
+
+[18/25] r/AIAssisted  (AI Agents & Builders)
+  [rss] Fetching r/AIAssisted (cutoff: 2026-07-22T23:21:22.381653)...
+    10 posts collected from r/AIAssisted (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/AIAssisted.json  (13KB)
+  [cooldown] 52s before next...
+
+[19/25] r/LangChain  (AI Agents & Builders)
+  [rss] Fetching r/LangChain (cutoff: 2026-07-22T23:21:22.381653)...
+    25 posts collected from r/LangChain (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/LangChain.json  (53KB)
+  [cooldown] 49s before next...
+
+[20/25] r/n8n_ai_agents  (AI Agents & Builders)
+  [rss] Fetching r/n8n_ai_agents (cutoff: 2026-07-22T23:21:22.381653)...
+    3 posts collected from r/n8n_ai_agents (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/n8n_ai_agents.json  (3KB)
+  [cooldown] 53s before next...
+
+[21/25] r/n8nforbeginners  (AI Agents & Builders)
+  [rss] Fetching r/n8nforbeginners (cutoff: 2026-07-22T23:21:22.381653)...
+    4 posts collected from r/n8nforbeginners (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/n8nforbeginners.json  (6KB)
+  [cooldown] 57s before next...
+
+[22/25] r/lovable  (AI Products & Tools)
+  [rss] Fetching r/lovable (cutoff: 2026-07-22T23:21:22.381653)...
+    8 posts collected from r/lovable (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/lovable.json  (14KB)
+  [cooldown] 57s before next...
+
+[23/25] r/notebooklm  (AI Products & Tools)
+  [rss] Fetching r/notebooklm (cutoff: 2026-07-22T23:21:22.381653)...
+    9 posts collected from r/notebooklm (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/notebooklm.json  (13KB)
+  [cooldown] 49s before next...
+
+[24/25] r/perplexity_ai  (AI Products & Tools)
+  [rss] Fetching r/perplexity_ai (cutoff: 2026-07-22T23:21:22.381653)...
+    2 posts collected from r/perplexity_ai (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/perplexity_ai.json  (2KB)
+  [cooldown] 52s before next...
+
+[25/25] r/personalfinance  (Other)
+  [rss] Fetching r/personalfinance (cutoff: 2026-07-22T23:21:22.381653)...
+    50 posts collected from r/personalfinance (rss, last 24h)
+  [rss] comments unavailable via RSS — posts only (mode=rss)
+
+  0 comments collected.
+  Saved: outputs/daily/personalfinance.json  (81KB)
+
+=== Harvest complete ===
+  Subreddits: 25 | Posts: 403 | Comments: 0
+  Mode: rss
+  Output: outputs/daily
+  Manifest: outputs/daily/_manifest.json
+[run_full] harvest done 23:44:36
+  Converting AIAssisted.json → AIAssisted.md
+  Converting AI_Agents.json → AI_Agents.md
+  Converting AI_Application.json → AI_Application.md
+  Converting Agent_AI.json → Agent_AI.md
+  Converting Agentic_SEO.json → Agentic_SEO.md
+  Converting AgentsOfAI.json → AgentsOfAI.md
+  Converting AiAutomations.json → AiAutomations.md
+  Converting AiBuilders.json → AiBuilders.md
+  Converting Anthropic.json → Anthropic.md
+  Converting ClaudeCode.json → ClaudeCode.md
+  Converting LangChain.json → LangChain.md
+  Converting claude.json → claude.md
+  Converting claudeai.json → claudeai.md
+  Converting claudexplorers.json → claudexplorers.md
+  Converting lovable.json → lovable.md
+  Converting n8n_ai_agents.json → n8n_ai_agents.md
+  Converting n8nforbeginners.json → n8nforbeginners.md
+  Converting notebooklm.json → notebooklm.md
+  Converting openclaw.json → openclaw.md
+  Converting opencodeCLI.json → opencodeCLI.md
+  Converting perplexity_ai.json → perplexity_ai.md
+  Converting personalfinance.json → personalfinance.md
+  Combined: AI_Agents_and_Builders_2026-07-23.md  (211KB)
+  Combined: Claude_and_Anthropic_Ecosystem_2026-07-23.md  (188KB)
+  Combined: AI_Products_and_Tools_2026-07-23.md  (21KB)
+  Combined: OpenClaw_Ecosystem_2026-07-23.md  (23KB)
+  Combined: Other_2026-07-23.md  (59KB)
+
+Markdown written to: outputs/markdown
+[run_full] markdown done
+[2026-07-23 23:44:37 UTC] Reddit Daily Brief pipeline starting — 2026-07-23
+[2026-07-23 23:44:37 UTC] [auth] Refreshing NotebookLM Chrome tokens...
+[2026-07-23 23:44:38 UTC] [auth] Token refresh failed (exit 1): Refresh failed: 'data'
+
+[2026-07-23 23:44:38 UTC] [auth] Re-extracting Reddit cookies from Mac Chrome...
+[2026-07-23 23:44:38 UTC] [auth] Using bridge_auth: /home/node/.claude/skills/reddit-daily-brief/scripts/bridge_auth.py
+[2026-07-23 23:45:24 UTC] [auth] bridge_auth: [auth] trying cookie extract on br_cae5e0a4dee79bbeecd75145 (niveshdeMacBook-Pro.local       )
+[auth] bridge br_cae5e0a4dee79bbeecd75145 extract failed: bridge_exec transport failed: curl exit 28 for POST https://happycapy.ai/api/bridge/command: curl: (28) Operation timed out after 45002 millisecond
+[2026-07-23 23:45:24 UTC] [auth] bridge_auth extract failed or cookies missing (exit 1)
+[2026-07-23 23:45:24 UTC] [auth] NotebookLM token refresh failed — non-fatal (gateway query mode)
+[2026-07-23 23:45:24 UTC] === Harvest skipped (--skip-harvest) ===
+[2026-07-23 23:45:24 UTC] === Markdown skipped (--skip-harvest; using existing combined for 2026-07-23) ===
+[2026-07-23 23:45:24 UTC] === NotebookLM upload skipped ===
+[2026-07-23 23:45:24 UTC] [query] Skipping NLM index wait (upload skipped or gateway mode)
+[2026-07-23 23:45:24 UTC] [query] query_mode=gateway (AI Gateway + local markdown)
+[2026-07-23 23:45:24 UTC] === Query NotebookLM + compose ===
+[2026-07-23 23:45:24 UTC]   cmd: python3 /home/node/.claude/skills/reddit-daily-brief/scripts/query_compose.py --config /home/node/.claude/skills/reddit-daily-brief/config/default_config.json --date 2026-07-23 --output /home/node/.claude/skills/reddit-daily-brief/outputs/composed/email_2026-07-23.md --archive-output /home/node/.claude/skills/reddit-daily-brief/outputs/composed/archive_summary_2026-07-23.md --gateway-first
+=== Query & Compose — 2026-07-23 ===
+  query_mode=gateway strict=False
+  Querying: Claude & Anthropic Ecosystem (id=b61c75f2...)
+    [gateway-first] analyzing local data via AI Gateway (171 posts)
+    Claude & Anthropic Ecosystem: -4/10 — Frustrated and anxious uncertainty
+  Querying: OpenClaw Ecosystem (id=eb9f8914...)
+    [gateway-first] analyzing local data via AI Gateway (24 posts)
+    OpenClaw Ecosystem: +4/10 — Curious and experimentally optimistic
+  Querying: AI Agents & Builders (id=9de0e231...)
+    [gateway-first] analyzing local data via AI Gateway (139 posts)
+    AI Agents & Builders: +6/10 — Technically engaged and curious
+  Querying: AI Products & Tools (id=cfbabec7...)
+    [gateway-first] analyzing local data via AI Gateway (19 posts)
+    AI Products & Tools: +4/10 — Cautiously optimistic, practically curious
+  Querying: Other (id=6459cf20...)
+    [gateway-first] analyzing local data via AI Gateway (50 posts)
+    Other: +2/10 — Anxious but seeking guidance
+  Querying master notebook for overall...
+  [gateway-first] synthesizing overall via AI Gateway
+  QA saved: /home/node/.claude/skills/reddit-daily-brief/outputs/composed/qa_2026-07-23.json
+  Email body saved: /home/node/.claude/skills/reddit-daily-brief/outputs/composed/email_2026-07-23.md
+  Archive summary saved: /home/node/.claude/skills/reddit-daily-brief/outputs/composed/archive_summary_2026-07-23.md
+=== Query & Compose complete ===
+[2026-07-23 23:46:39 UTC] === Generate PDF ===
+[2026-07-23 23:46:39 UTC]   cmd: python3 /home/node/.claude/skills/reddit-daily-brief/scripts/generate_pdf.py --config /home/node/.claude/skills/reddit-daily-brief/config/default_config.json --date 2026-07-23 --qa-file /home/node/.claude/skills/reddit-daily-brief/outputs/composed/qa_2026-07-23.json --daily-dir /home/node/.claude/skills/reddit-daily-brief/outputs/daily --output /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-23.pdf
+:: Compiling /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-23.tex with pdflatex...
+:: PDF created: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-23.pdf
+
+=== LaTeX Error Analysis ===
+
+  ! Found 2 overfull hbox warning(s) - text overflows margins
+    → Consider adding \usepackage{microtype} to preamble
+    → Or use --auto-fix flag to apply automatically
+
+:: Done.
+=== Generate PDF — 2026-07-23 ===
+  LaTeX: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-23.tex
+  PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-23.pdf  (116KB)
+=== PDF complete ===
+[2026-07-23 23:46:40 UTC] [email] Sending email to niveshdandyan@gmail.com...
+[2026-07-23 23:46:41 UTC] [email] Email sent: {
+  "success": true,
+  "message_id": "0100019f915fc7ee-8952df09-03e1-4210-a658-7fb0f37efc1a-000000@e
+[2026-07-23 23:46:41 UTC] Pipeline complete for 2026-07-23
+[2026-07-23 23:46:41 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-07-23.log
+[2026-07-23 23:46:41 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-23.pdf
+[run_full] complete 2026-07-23 23:46:41

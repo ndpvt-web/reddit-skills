@@ -1,0 +1,42 @@
+[2026-07-09 13:27:23 UTC] Reddit Daily Brief pipeline starting — 2026-07-09
+[2026-07-09 13:27:23 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-07-09 13:27:23 UTC]   Token refresh warning (continuing): Refresh failed: 'data'
+
+[2026-07-09 13:27:23 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-07-09 13:27:24 UTC]   Bridge result: 
+[2026-07-09 13:27:24 UTC]   Cookie refresh failed — using existing cookies file
+[2026-07-09 13:27:24 UTC] === Harvest 24h Reddit ===
+[2026-07-09 13:27:25 UTC] === Convert to Markdown ===
+[2026-07-09 13:27:25 UTC] === Sync to NotebookLM ===
+[2026-07-09 13:27:45 UTC] Waiting 30s for NotebookLM to index sources...
+[2026-07-09 13:28:15 UTC] === Query NotebookLM + compose ===
+[2026-07-09 13:28:23 UTC] === Archive sync ===
+[2026-07-09 13:28:46 UTC] === Generate PDF ===
+[2026-07-09 13:28:48 UTC]   Sending email to niveshdandyan@gmail.com...
+[2026-07-09 13:28:49 UTC]   Email sent: {
+  "success": true,
+  "message_id": "0100019f471110cd-aa4ff627-fe16-402e-b95b-6d7f90908743-000000@e
+[2026-07-09 13:28:49 UTC] Pipeline complete for 2026-07-09
+[2026-07-09 13:28:49 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-07-09.log
+[2026-07-09 13:28:49 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-09.pdf
+[2026-07-09 23:21:46 UTC] Reddit Daily Brief pipeline starting — 2026-07-09
+[2026-07-09 23:21:46 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-07-09 23:21:47 UTC]   Token refresh warning (continuing): Refresh failed: 'data'
+
+[2026-07-09 23:21:47 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-07-09 23:21:47 UTC]   Bridge result: 
+[2026-07-09 23:21:47 UTC]   Cookie refresh failed — using existing cookies file
+[2026-07-09 23:21:47 UTC] === Harvest 24h Reddit ===
+[2026-07-09 23:21:47 UTC] === Convert to Markdown ===
+[2026-07-09 23:21:47 UTC] === Sync to NotebookLM ===
+[2026-07-09 23:22:04 UTC] Waiting 30s for NotebookLM to index sources...
+[2026-07-09 23:22:34 UTC] === Query NotebookLM + compose ===
+[2026-07-09 23:22:44 UTC] === Archive sync ===
+[2026-07-09 23:23:02 UTC] === Generate PDF ===
+[2026-07-09 23:23:04 UTC]   Sending email to niveshdandyan@gmail.com...
+[2026-07-09 23:23:05 UTC]   Email sent: {
+  "success": true,
+  "message_id": "0100019f493123f9-e5a51d80-65bf-4e0f-b56b-e54faab07d5d-000000@e
+[2026-07-09 23:23:05 UTC] Pipeline complete for 2026-07-09
+[2026-07-09 23:23:05 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-07-09.log
+[2026-07-09 23:23:05 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-09.pdf

@@ -1,0 +1,26 @@
+[2026-07-24 23:44:06 UTC] Reddit Daily Brief pipeline starting — 2026-07-24
+[2026-07-24 23:44:06 UTC] [auth] Refreshing NotebookLM Chrome tokens...
+[2026-07-24 23:44:07 UTC] [auth] Token refresh failed (exit 1): Refresh failed: 'data'
+
+[2026-07-24 23:44:07 UTC] [auth] Re-extracting Reddit cookies from Mac Chrome...
+[2026-07-24 23:44:07 UTC] [auth] Using bridge_auth: /home/node/.claude/skills/reddit-daily-brief/scripts/bridge_auth.py
+[2026-07-24 23:44:08 UTC] [auth] bridge_auth: [auth] extract_reddit_cookies: no online machines
+[auth] extract-cookies FAILED
+[2026-07-24 23:44:08 UTC] [auth] bridge_auth extract failed or cookies missing (exit 1)
+[2026-07-24 23:44:08 UTC] [auth] NotebookLM token refresh failed — non-fatal (gateway query mode)
+[2026-07-24 23:44:08 UTC] === Harvest skipped (--skip-harvest) ===
+[2026-07-24 23:44:08 UTC] === Markdown skipped (--skip-harvest; using existing combined for 2026-07-24) ===
+[2026-07-24 23:44:08 UTC] === NotebookLM upload skipped ===
+[2026-07-24 23:44:08 UTC] [query] Skipping NLM index wait (upload skipped or gateway mode)
+[2026-07-24 23:44:08 UTC] [query] query_mode=gateway (AI Gateway + local markdown)
+[2026-07-24 23:44:08 UTC] === Query NotebookLM + compose ===
+[2026-07-24 23:44:08 UTC]   cmd: python3 /home/node/.claude/skills/reddit-daily-brief/scripts/query_compose.py --config /home/node/.claude/skills/reddit-daily-brief/config/default_config.json --date 2026-07-24 --output /home/node/.claude/skills/reddit-daily-brief/outputs/composed/email_2026-07-24.md --archive-output /home/node/.claude/skills/reddit-daily-brief/outputs/composed/archive_summary_2026-07-24.md --gateway-first
+[2026-07-24 23:45:15 UTC] === Generate PDF ===
+[2026-07-24 23:45:15 UTC]   cmd: python3 /home/node/.claude/skills/reddit-daily-brief/scripts/generate_pdf.py --config /home/node/.claude/skills/reddit-daily-brief/config/default_config.json --date 2026-07-24 --qa-file /home/node/.claude/skills/reddit-daily-brief/outputs/composed/qa_2026-07-24.json --daily-dir /home/node/.claude/skills/reddit-daily-brief/outputs/daily --output /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-24.pdf
+[2026-07-24 23:45:17 UTC] [email] Sending email to niveshdandyan@gmail.com...
+[2026-07-24 23:45:18 UTC] [email] Email sent: {
+  "success": true,
+  "message_id": "0100019f9684de94-c8fadfd8-c519-4ad1-9372-3989e6663a40-000000@e
+[2026-07-24 23:45:18 UTC] Pipeline complete for 2026-07-24
+[2026-07-24 23:45:18 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-07-24.log
+[2026-07-24 23:45:18 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-24.pdf

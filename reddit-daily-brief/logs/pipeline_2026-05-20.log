@@ -1,0 +1,26 @@
+[2026-05-20 23:23:32 UTC] Reddit Daily Brief pipeline starting — 2026-05-20
+[2026-05-20 23:23:32 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-05-20 23:23:35 UTC]   Tokens refreshed: Air...
+  Cookies: 30 extracted
+  Tokens: CSRF=ABn2ubcFdogYZ8L8MgKz..., SID=4198685570518743352
+Done.
+[2026-05-20 23:23:35 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-05-20 23:23:35 UTC]   Bridge result: 
+[2026-05-20 23:23:35 UTC]   Cookie refresh failed — using existing cookies file
+[2026-05-20 23:23:35 UTC] === Harvest 24h Reddit ===
+[2026-05-20 23:23:35 UTC] === Convert to Markdown ===
+[2026-05-20 23:23:36 UTC] === Sync to NotebookLM ===
+[2026-05-20 23:23:39 UTC] Reddit Daily Brief pipeline starting — 2026-05-20
+[2026-05-20 23:23:39 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-05-20 23:23:42 UTC]   Tokens refreshed: Air...
+  Cookies: 30 extracted
+  Tokens: CSRF=ABn2ubcFdogYZ8L8MgKz..., SID=4198685570518743352
+Done.
+[2026-05-20 23:23:42 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-05-20 23:23:42 UTC]   Bridge result: 
+[2026-05-20 23:23:42 UTC]   Cookie refresh failed — using existing cookies file
+[2026-05-20 23:23:42 UTC] === Harvest 24h Reddit ===
+[2026-05-20 23:23:42 UTC] === Convert to Markdown ===
+[2026-05-20 23:23:42 UTC] === Sync to NotebookLM ===
+[2026-05-20 23:24:11 UTC] Waiting 30s for NotebookLM to index sources...
+[2026-05-20 23:24:16 UTC] Waiting 30s for NotebookLM to index sources...

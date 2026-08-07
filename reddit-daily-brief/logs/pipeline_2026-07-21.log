@@ -1,0 +1,52 @@
+[2026-07-21 23:21:42 UTC] Reddit Daily Brief pipeline starting — 2026-07-21
+[2026-07-21 23:21:42 UTC] [auth] Refreshing NotebookLM Chrome tokens...
+[2026-07-21 23:21:44 UTC] [auth] Token refresh failed (exit 1): Refresh failed: 'data'
+
+[2026-07-21 23:21:44 UTC] [auth] Re-extracting Reddit cookies from Mac Chrome...
+[2026-07-21 23:21:44 UTC] [auth] Using bridge_auth: /home/node/.claude/skills/reddit-daily-brief/scripts/bridge_auth.py
+[2026-07-21 23:22:29 UTC] [auth] bridge_auth: [auth] trying cookie extract on br_49d131f362573e68681bd840 (Niveshs-MacBook-Air-756.local       )
+[auth] bridge br_49d131f362573e68681bd840 extract failed: bridge_exec transport failed: curl exit 28 for POST https://happycapy.ai/api/bridge/command: curl: (28) Operation timed out after 45001 millise
+[2026-07-21 23:22:29 UTC] [auth] bridge_auth extract failed or cookies missing (exit 1)
+[2026-07-21 23:22:29 UTC] [auth] NotebookLM token refresh failed — non-fatal (gateway query mode)
+[2026-07-21 23:22:29 UTC] === Harvest skipped (--skip-harvest) ===
+[2026-07-21 23:22:29 UTC] === Markdown skipped (--skip-harvest; using existing combined for 2026-07-21) ===
+[2026-07-21 23:22:29 UTC] === NotebookLM upload skipped ===
+[2026-07-21 23:22:29 UTC] [query] Skipping NLM index wait (upload skipped or gateway mode)
+[2026-07-21 23:22:29 UTC] [query] query_mode=gateway (AI Gateway + local markdown)
+[2026-07-21 23:22:29 UTC] === Query NotebookLM + compose ===
+[2026-07-21 23:22:29 UTC]   cmd: python3 /home/node/.claude/skills/reddit-daily-brief/scripts/query_compose.py --config /home/node/.claude/skills/reddit-daily-brief/config/default_config.json --date 2026-07-21 --output /home/node/.claude/skills/reddit-daily-brief/outputs/composed/email_2026-07-21.md --archive-output /home/node/.claude/skills/reddit-daily-brief/outputs/composed/archive_summary_2026-07-21.md --gateway-first
+[2026-07-21 23:22:36 UTC] === Generate PDF ===
+[2026-07-21 23:22:36 UTC]   cmd: python3 /home/node/.claude/skills/reddit-daily-brief/scripts/generate_pdf.py --config /home/node/.claude/skills/reddit-daily-brief/config/default_config.json --date 2026-07-21 --qa-file /home/node/.claude/skills/reddit-daily-brief/outputs/composed/qa_2026-07-21.json --daily-dir /home/node/.claude/skills/reddit-daily-brief/outputs/daily --output /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-21.pdf
+[2026-07-21 23:22:37 UTC] [email] Sending email to niveshdandyan@gmail.com...
+[2026-07-21 23:22:39 UTC] [email] Email sent: {
+  "success": true,
+  "message_id": "0100019f86fd0b62-0f8caea6-ca5c-488d-95d6-c6ed1044300c-000000@e
+[2026-07-21 23:22:39 UTC] Pipeline complete for 2026-07-21
+[2026-07-21 23:22:39 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-07-21.log
+[2026-07-21 23:22:39 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-21.pdf
+[2026-07-21 23:23:02 UTC] Reddit Daily Brief pipeline starting — 2026-07-21
+[2026-07-21 23:23:02 UTC] [auth] Refreshing NotebookLM Chrome tokens...
+[2026-07-21 23:23:03 UTC] [auth] Token refresh failed (exit 1): Refresh failed: 'data'
+
+[2026-07-21 23:23:03 UTC] [auth] Re-extracting Reddit cookies from Mac Chrome...
+[2026-07-21 23:23:03 UTC] [auth] Using bridge_auth: /home/node/.claude/skills/reddit-daily-brief/scripts/bridge_auth.py
+[2026-07-21 23:23:48 UTC] [auth] bridge_auth: [auth] trying cookie extract on br_49d131f362573e68681bd840 (Niveshs-MacBook-Air-756.local       )
+[auth] bridge br_49d131f362573e68681bd840 extract failed: bridge_exec transport failed: curl exit 28 for POST https://happycapy.ai/api/bridge/command: curl: (28) Operation timed out after 45000 millise
+[2026-07-21 23:23:48 UTC] [auth] bridge_auth extract failed or cookies missing (exit 1)
+[2026-07-21 23:23:48 UTC] [auth] NotebookLM token refresh failed — non-fatal (gateway query mode)
+[2026-07-21 23:23:48 UTC] === Harvest skipped (--skip-harvest) ===
+[2026-07-21 23:23:48 UTC] === Markdown skipped (--skip-harvest; using existing combined for 2026-07-21) ===
+[2026-07-21 23:23:48 UTC] === NotebookLM upload skipped ===
+[2026-07-21 23:23:48 UTC] [query] Skipping NLM index wait (upload skipped or gateway mode)
+[2026-07-21 23:23:48 UTC] [query] query_mode=gateway (AI Gateway + local markdown)
+[2026-07-21 23:23:48 UTC] === Query NotebookLM + compose ===
+[2026-07-21 23:23:48 UTC]   cmd: python3 /home/node/.claude/skills/reddit-daily-brief/scripts/query_compose.py --config /home/node/.claude/skills/reddit-daily-brief/config/default_config.json --date 2026-07-21 --output /home/node/.claude/skills/reddit-daily-brief/outputs/composed/email_2026-07-21.md --archive-output /home/node/.claude/skills/reddit-daily-brief/outputs/composed/archive_summary_2026-07-21.md --gateway-first
+[2026-07-21 23:24:58 UTC] === Generate PDF ===
+[2026-07-21 23:24:58 UTC]   cmd: python3 /home/node/.claude/skills/reddit-daily-brief/scripts/generate_pdf.py --config /home/node/.claude/skills/reddit-daily-brief/config/default_config.json --date 2026-07-21 --qa-file /home/node/.claude/skills/reddit-daily-brief/outputs/composed/qa_2026-07-21.json --daily-dir /home/node/.claude/skills/reddit-daily-brief/outputs/daily --output /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-21.pdf
+[2026-07-21 23:25:00 UTC] [email] Sending email to niveshdandyan@gmail.com...
+[2026-07-21 23:25:01 UTC] [email] Email sent: {
+  "success": true,
+  "message_id": "0100019f86ff3765-a6f515ab-0d73-4074-b1ca-79779dd3068e-000000@e
+[2026-07-21 23:25:01 UTC] Pipeline complete for 2026-07-21
+[2026-07-21 23:25:01 UTC] Log: /home/node/.claude/skills/reddit-daily-brief/logs/pipeline_2026-07-21.log
+[2026-07-21 23:25:01 UTC] PDF: /home/node/.claude/skills/reddit-daily-brief/outputs/pdfs/reddit-brief-2026-07-21.pdf

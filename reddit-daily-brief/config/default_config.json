@@ -1,0 +1,101 @@
+{
+  "_comment": "Reddit Daily Brief \u2014 fully config-driven. No hardcoded values in pipeline scripts.",
+  "timezone": "Asia/Hong_Kong",
+  "schedule": {
+    "harvest_hour": 7,
+    "harvest_minute": 0,
+    "email_hour": 10,
+    "email_minute": 0
+  },
+  "reddit": {
+    "cookies_file": "~/.claude/skills/reddit-daily-brief/config/reddit_cookies.json",
+    "posts_per_subreddit": 50,
+    "comments_per_post": 20,
+    "lookback_hours": 24,
+    "sort": "new"
+  },
+  "query_mode": "gateway",
+  "notebooks": [
+    {
+      "id": "b61c75f2-c938-4d56-8c0c-b1671b6e8121",
+      "name": "Claude & Anthropic Ecosystem",
+      "subreddits": [
+        "claudeai",
+        "ClaudeCode",
+        "claude",
+        "Anthropic",
+        "claudexplorers"
+      ]
+    },
+    {
+      "id": "eb9f8914-e69f-46dd-bcf2-5787ca63bcf4",
+      "name": "OpenClaw Ecosystem",
+      "subreddits": [
+        "openclaw",
+        "openclawhosting",
+        "openclawsetup",
+        "opencodeCLI"
+      ]
+    },
+    {
+      "id": "9de0e231-a415-4962-abf9-8091005b1c1d",
+      "name": "AI Agents & Builders",
+      "subreddits": [
+        "Agent_AI",
+        "AgentsOfAI",
+        "AI_Agents",
+        "alagents",
+        "AI_Application",
+        "Agentic_SEO",
+        "AiAutomations",
+        "AiBuilders",
+        "AIAssisted",
+        "LangChain",
+        "n8n_ai_agents",
+        "n8nforbeginners"
+      ]
+    },
+    {
+      "id": "cfbabec7-8d70-44eb-ba78-57d13acd9dc4",
+      "name": "AI Products & Tools",
+      "subreddits": [
+        "lovable",
+        "notebooklm",
+        "perplexity_ai"
+      ]
+    },
+    {
+      "id": "6459cf20-98e2-4627-b588-ca945fc4576d",
+      "name": "Other",
+      "subreddits": [
+        "personalfinance"
+      ]
+    }
+  ],
+  "master_notebook": {
+    "id": "ca258968-92e8-487f-a6e3-e01d939a2b7d",
+    "name": "Reddit Daily Brief \u2014 Master"
+  },
+  "master_notebook_id": "ca258968-92e8-487f-a6e3-e01d939a2b7d",
+  "archive_notebook_id": "2d6d758b-aa50-4cd6-9c06-c33bad7d9448",
+  "notebooklm_bin": "~/.local/bin/notebooklm",
+  "rolling_window_days": 30,
+  "questions": [
+    "What are the top 3 most discussed topics across all communities today? Give specific examples with post titles.",
+    "What pain points or frustrations are users expressing? Quote the most upvoted complaints.",
+    "What new tools, products, or features are people excited about today?",
+    "Are there any viral posts or standout threads worth highlighting? What made them resonate?",
+    "What questions are people asking that remain unanswered or controversial?"
+  ],
+  "email": {
+    "to": "niveshdandyan@gmail.com",
+    "subject_template": "Reddit Daily Brief \u2014 {date}",
+    "from_alias": ""
+  },
+  "pdf": {
+    "output_dir": "~/.claude/skills/reddit-daily-brief/outputs/pdfs",
+    "font": "Helvetica",
+    "author": "Reddit Daily Brief"
+  },
+  "notebooklm_profile": "default"
+}

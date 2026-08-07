@@ -1,0 +1,20 @@
+[2026-04-21 23:20:24 UTC] Reddit Daily Brief pipeline starting — 2026-04-21
+[2026-04-21 23:20:24 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-04-21 23:20:28 UTC]   Tokens refreshed: shing Chrome cookies + tokens from Mac Air...
+  Cookies: 32 extracted
+  Tokens: CSRF=..., SID=
+Done.
+[2026-04-21 23:20:28 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-04-21 23:20:28 UTC]   Bridge result: 
+[2026-04-21 23:20:28 UTC]   Cookie refresh failed — using existing cookies file
+[2026-04-21 23:20:28 UTC] === Harvest 24h Reddit ===
+[2026-04-21 23:23:13 UTC] Reddit Daily Brief pipeline starting — 2026-04-21
+[2026-04-21 23:23:13 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-04-21 23:23:16 UTC]   Tokens refreshed: shing Chrome cookies + tokens from Mac Air...
+  Cookies: 32 extracted
+  Tokens: CSRF=..., SID=
+Done.
+[2026-04-21 23:23:16 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-04-21 23:23:17 UTC]   Bridge result: 
+[2026-04-21 23:23:17 UTC]   Cookie refresh failed — using existing cookies file
+[2026-04-21 23:23:17 UTC] === Harvest 24h Reddit ===

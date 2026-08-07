@@ -1,0 +1,29 @@
+[2026-04-22 01:52:07 UTC] Reddit Daily Brief pipeline starting — 2026-04-22
+[2026-04-22 01:52:07 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-04-22 01:52:35 UTC]   Tokens refreshed: shing Chrome cookies + tokens from Mac Air...
+  Cookies: 32 extracted
+  Tokens: CSRF=..., SID=
+Done.
+[2026-04-22 01:52:35 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-04-22 01:52:36 UTC]   Bridge result: 
+[2026-04-22 01:52:36 UTC]   Cookies saved to /tmp/reddit_cookies.json
+[2026-04-22 01:52:36 UTC] === Harvest 24h Reddit ===
+[2026-04-22 01:53:13 UTC] Reddit Daily Brief pipeline starting — 2026-04-22
+[2026-04-22 01:53:13 UTC] Refreshing NotebookLM Chrome tokens...
+[2026-04-22 01:53:16 UTC]   Tokens refreshed: shing Chrome cookies + tokens from Mac Air...
+  Cookies: 32 extracted
+  Tokens: CSRF=..., SID=
+Done.
+[2026-04-22 01:53:16 UTC] Re-extracting Reddit cookies from Mac Chrome...
+[2026-04-22 01:53:16 UTC]   Bridge result: 
+[2026-04-22 01:53:16 UTC]   Cookies saved to /tmp/reddit_cookies.json
+[2026-04-22 01:53:16 UTC] === Harvest 24h Reddit ===
+[2026-04-22 02:50:42 UTC] === Convert to Markdown ===
+[2026-04-22 02:50:42 UTC] === Sync to NotebookLM ===
+[2026-04-22 02:50:55 UTC] Waiting 30s for NotebookLM to index sources...
+[2026-04-22 02:51:25 UTC] === Query NotebookLM + compose ===
+[2026-04-22 02:52:04 UTC] === Archive sync ===
+[2026-04-22 02:52:15 UTC] === Generate PDF ===
+[2026-04-22 02:52:15 UTC] FAILED: Generate PDF (exit 1)
+[2026-04-22 02:52:15 UTC] PDF generation failed — sending email without attachment
+[2026-04-22 02:52:15 UTC]   Sending email to niveshdandyan@gmail.com...
