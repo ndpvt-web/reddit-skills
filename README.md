@@ -1,8 +1,12 @@
 # Reddit Skills
 
-**Research Reddit communities. Find the right conversations. Draft posts that actually fit.**
+**Give this repo one try.** It’s the same framework that took me from getting banned over and over on Reddit — to **50M+ views**, including a single post with **12M+ views and 10K+ upvotes**.
 
-Six skills for agents (Claude Code, Codex, and similar). Use them alone or as a pipeline: find where your audience hangs out → study each subreddit → watch live threads → draft posts that sound human.
+I didn’t start with a playbook. I burned through **tens of Reddit accounts**, guessed what worked, and watched posts die (or get me banned). Then I rebuilt the process: research each subreddit on its own, write for that community only, simulate before posting. We ran this framework again and again across **multiple products**. The numbers above are what came out after a lot of iteration — not a lucky one-off.
+
+I almost didn’t open-source this. The toolkit is powerful enough that it *could* be misused (including for unethical stuff like trying to manipulate markets or people). I debated that for a long time. I’m sharing it anyway because the same system can help builders show up honestly in communities that matter — **please use it ethically. Don’t misuse it.**
+
+These six skills are for agents (Claude Code, Codex, and similar). Use them alone or as a pipeline: find where your audience hangs out → study each subreddit → watch live threads → draft posts that sound human.
 
 > Reddit is not one audience. What works in one subreddit can flop in another. Research first. Post second.
 
@@ -67,13 +71,14 @@ Optional: clone and install a single skill folder into `~/.claude/skills` or `~/
 
 ## Results
 
-Using these skills we generated **50M+ views**.
-
+- **50M+ views** using this framework (across multiple products, after a lot of iteration)
 - Highest single post: **12M+ views** and **10K+ upvotes**
 - Every post was **written by AI**, aimed at **one specific subreddit**
 - Always research that sub first (`subreddit-analyst`) — **never** reuse the same post across subs
 
-This framework is built to get you the next viral post — research the sub, write for that community, simulate, then ship.
+Give it one serious run on a real product and a real subreddit. That’s the test.
+
+**Use it ethically.** Don’t use this to manipulate markets, deceive communities, or run astroturf campaigns.
 
 ## Contributing
 
