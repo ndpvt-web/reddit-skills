@@ -19,30 +19,17 @@ Six skills for agents (Claude Code, Codex, and similar). Use them alone or as a 
 
 Each folder has its own `SKILL.md` with inputs, steps, and limits.
 
-## Recommended research workflow
+## How to use these skills (in order)
 
-```text
-Brand narrative  ─┐
-                  ├──► Study each subreddit (analyst)
-ICP discovery ────┘              │
-                                 ▼
-                     Watch live threads (scout)
-                                 │
-                                 ▼
-                     Draft + simulate post (post-writer)
-                                 │
-                                 ▼
-                     Re-check brand narrative later
-```
+1. **Audit your presence** — Use `reddit-brand-narrative` to see how Reddit already talks about your brand, product, or narrative (community by community).
+2. **Find communities** — Use `reddit-icp-discovery` to find the subreddits where your customers actually live and discuss their problems.
+3. **Deep dive each subreddit** — Use `subreddit-analyst` on one sub at a time. Pull ~**1–2 years** of past posts, learn how that community behaves, what they like / hate, and everything your agent needs to win that subreddit.
+4. **Catch new posts fast** — Use `reddit-scout` to find relevant new posts as soon as they appear (about you, your product, or topics you care about). Typical loop: check across your target subs about **every 1 hour** so you can steer the narrative early.
+5. **Write the viral post** — Use `reddit-post-writer` to draft a post that does **not** sound like AI, aimed at **one** specific subreddit. It **simulates the post with digital-twin personas before you post**.
+6. **Daily pulse** — Use `reddit-daily-brief` for a morning digest of what customers are saying about your product, or what’s happening in the communities you care about.
+7. **Track change** — Run `reddit-brand-narrative` again later on a comparable date range to see if the story on Reddit shifted.
 
-1. **Baseline** — `reddit-brand-narrative` if people already talk about you on Reddit.
-2. **Find communities** — `reddit-icp-discovery` for where your customers hang out.
-3. **Deep dive** — `subreddit-analyst` on each shortlisted sub (own date window, own report).
-4. **Stay current** — `reddit-scout` on a short lookback (1h–24h) for fresh threads worth joining.
-5. **Write** — `reddit-post-writer` for a draft you can paste after you review it.
-6. **Track change** — run brand narrative again on a comparable period.
-
-Skip steps you do not need. A new product with no mentions can start at ICP discovery.
+Skip what you don’t need. Brand-new product with zero mentions? Start at step 2.
 
 ## Quick start
 
