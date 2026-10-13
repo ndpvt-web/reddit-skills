@@ -3,7 +3,7 @@
 Arctic Shift subreddit post fetcher — checkpoint-based, resumable.
 
 Usage:
-  python3 fetch_arctic_shift.py --subreddit personalfinance --after 2025-06-17 --before 2026-06-17
+  python3 fetch_arctic_shift.py --subreddit example --after YYYY-MM-DD --before YYYY-MM-DD
 
 Outputs:
   tmp/checkpoint_posts.jsonl  — append-only line-per-post (crash-safe)
@@ -12,12 +12,12 @@ Outputs:
 
 Key lessons baked in:
   - sort=asc (NOT sort=desc&order=desc — 'order' param doesn't exist)
-  - 422 / 400 = data gap, not a bug — stop gracefully and save
+  - HTTP errors are incomplete collection, never proof of full coverage
   - Paginate by advancing 'after' timestamp, NOT by cursor/page number
   - Checkpoint after every page so a crash doesn't lose all data
-  - Specific timestamps (2026-05-08T23:01:17) work; dates alone also work
+  - Specific timestamps work; dates alone also work
 """
-import argparse, json, time, datetime, requests
+import argparse, json, time, datetime, re, requests
 from pathlib import Path
 
 BASE = "https://arctic-shift.photon-reddit.com/api/posts/search"
@@ -25,17 +25,36 @@ BASE = "https://arctic-shift.photon-reddit.com/api/posts/search"
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--subreddit", required=True)
-    ap.add_argument("--after",  default="2025-06-17")
-    ap.add_argument("--before", default="2026-06-17")
+    ap.add_argument("--after", required=True, help="Inclusive UTC start, YYYY-MM-DD")
+    ap.add_argument("--before", required=True, help="Exclusive UTC end, YYYY-MM-DD")
     ap.add_argument("--limit",  type=int, default=100)
     ap.add_argument("--outdir", default="tmp")
     args = ap.parse_args()
 
+    if not re.fullmatch(r"[A-Za-z0-9_]{2,21}", args.subreddit):
+        ap.error("subreddit must be a valid name without r/ prefix")
+    try:
+        start = datetime.date.fromisoformat(args.after)
+        end = datetime.date.fromisoformat(args.before)
+    except ValueError:
+        ap.error("after and before must be ISO dates (YYYY-MM-DD)")
+    if start >= end:
+        ap.error("before must be later than after")
+
     out_dir   = Path(args.outdir)
-    out_dir.mkdir(exist_ok=True)
+    out_dir.mkdir(parents=True, exist_ok=True)
     CHECKPOINT = out_dir / "checkpoint_posts.jsonl"
     RESUME_TS  = out_dir / "checkpoint_ts.txt"
     FINAL_OUT  = out_dir / "reddit_raw_full.json"
+
+    # Checkpoints belong to one community and date range only.
+    manifest = out_dir / "request.json"
+    request = {"subreddit": args.subreddit, "after": args.after, "before": args.before}
+    if CHECKPOINT.exists() and not manifest.exists():
+        ap.error("existing checkpoint has no request manifest; use a new outdir")
+    if manifest.exists() and json.loads(manifest.read_text()) != request:
+        ap.error("outdir contains a different collection; choose a separate outdir")
+    manifest.write_text(json.dumps(request, indent=2))
 
     # Resume from last saved timestamp if available
     if RESUME_TS.exists():
@@ -60,6 +79,8 @@ def main():
     page  = 0
     total = existing
 
+    complete = False
+    failure = None
     with open(CHECKPOINT, "a") as out_f:
         while True:
             params["after"] = after_fixed
@@ -67,22 +88,23 @@ def main():
             try:
                 resp = requests.get(BASE, params=params, timeout=30)
 
-                # 422 / 400 = data gap (e.g. future dates or API limit) — stop cleanly
-                if resp.status_code in (422, 400):
-                    err = resp.json().get("error", resp.status_code)
-                    print(f"[page {page}] HTTP {resp.status_code} → stopping ({err}). Saving what we have.")
-                    break
-
                 resp.raise_for_status()
             except requests.exceptions.Timeout:
-                print(f"[page {page}] Timeout — retrying in 5s...")
-                time.sleep(5)
-                continue
+                failure = f"Timeout at page {page}"
+                break
+            except requests.exceptions.RequestException as exc:
+                failure = f"Request failure at page {page}: {exc}"
+                break
 
-            posts = resp.json().get("data") or []
+            try:
+                posts = resp.json().get("data") or []
+            except (ValueError, AttributeError) as exc:
+                failure = f"Invalid response at page {page}: {exc}"
+                break
 
             if not posts:
                 print(f"[page {page}] Empty response — end of data.")
+                complete = True
                 break
 
             for p in posts:
@@ -96,10 +118,6 @@ def main():
             total += len(posts)
             page  += 1
             print(f"[page {page}] +{len(posts)} → total {total:,} | {datetime.datetime.utcfromtimestamp(last_ts).date()}")
-
-            if len(posts) < args.limit:
-                print("Last page reached.")
-                break
 
             time.sleep(0.4)
 
@@ -129,6 +147,9 @@ def main():
     summary = {
         "subreddit": args.subreddit,
         "period": f"{args.after} to {args.before}",
+        "collection_status": "complete" if complete else "partial",
+        "collection_error": failure,
+        "last_cursor": after_fixed,
         "total_posts": len(unique),
         "total_unique_authors": len(authors),
         "avg_score": round(sum(scores)/len(scores), 2) if scores else 0,
@@ -142,6 +163,8 @@ def main():
     FINAL_OUT.write_text(json.dumps({"summary": summary, "posts": unique}, indent=2))
     print(f"\nSaved {len(unique):,} unique posts → {FINAL_OUT}")
     print(json.dumps({k: v for k, v in summary.items() if "top" not in k}, indent=2))
+    if not complete:
+        raise SystemExit("Collection is partial; do not describe it as exhaustive")
 
 if __name__ == "__main__":
     main()

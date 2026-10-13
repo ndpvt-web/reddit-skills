@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Format r/personalfinance (or any subreddit) data into monthly markdown chunks
+Format subreddit post data into monthly markdown chunks
 and upload them to a NotebookLM notebook.
 
 Usage:
@@ -14,11 +14,11 @@ Key lessons baked in:
   - Run the script only ONCE — running twice creates duplicate sources
   - Check `notebooklm source list` first to avoid duplicate uploads
 """
-import argparse, json, datetime, subprocess
+import argparse, json, datetime, subprocess, os, shutil
 from pathlib import Path
 from collections import defaultdict
 
-NLM = str(Path.home() / ".local/bin/notebooklm")
+NLM = os.environ.get("NOTEBOOKLM_CLI") or shutil.which("notebooklm")
 
 
 def ts_date(ts): return datetime.datetime.utcfromtimestamp(ts).strftime("%Y-%m-%d")
@@ -49,6 +49,8 @@ def main():
     ap.add_argument("--notebook", required=True, help="NotebookLM notebook ID")
     ap.add_argument("--outdir",   default="tmp/nlm_chunks")
     args = ap.parse_args()
+    if not NLM:
+        ap.error("NotebookLM CLI not found; set NOTEBOOKLM_CLI or install it on PATH")
 
     chunks_dir = Path(args.outdir)
     chunks_dir.mkdir(parents=True, exist_ok=True)
@@ -75,7 +77,7 @@ def main():
         monthly_map[ts_month(p["created_utc"])].append(p)
 
     lines = [
-        f"# r/{summary['subreddit']} — 1-Year Summary",
+        f"# r/{summary['subreddit']} — Collection Summary",
         f"## Period: {summary['period']}",
         "",
         "## Key Statistics",

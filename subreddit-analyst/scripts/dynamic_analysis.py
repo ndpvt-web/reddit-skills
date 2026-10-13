@@ -9,36 +9,24 @@ Flow:
   Final:   Synthesize all Q&A into a comprehensive report
 
 Usage:
-  python3 dynamic_analysis.py --notebook NOTEBOOK_ID --subreddit personalfinance \
-    --outdir tmp --results tmp/dynamic_results.json
+  python3 dynamic_analysis.py --notebook NOTEBOOK_ID --subreddit example \
+    --results tmp/dynamic_results.json
 
 Key lessons baked in:
-  - Auth expires ~25-30 min; auto-refresh before every CLI call
+  - Use the user's normal NotebookLM authentication; do not extract browser tokens
   - `notebooklm ask --notebook ID "question"` — no --new flag (doesn't exist)
   - NLM queries for complex questions take 60-180s; use 180s timeout with retries
-  - Use subprocess + curl for AI Gateway calls (urllib gets 403)
-  - Set Accept-Encoding: identity to avoid gzip decode errors
-  - Model anthropic/claude-sonnet-4.6 (with PERIOD not HYPHEN before version)
+  - Optional configured chat-completions service generates follow-up questions
   - Save results incrementally after every answer (crash-safe)
   - Round 2/3 questions are GENERATED from answers, not hardcoded
 """
-import argparse, subprocess, json, time, os, sys
+import argparse, subprocess, json, time, os, sys, shutil
 from pathlib import Path
 
-NLM         = str(Path.home() / ".local/bin/notebooklm")
-AI_BASE     = os.environ.get("AI_GATEWAY_BASE_URL", "")
-AI_KEY      = os.environ.get("AI_GATEWAY_API_KEY", "")
-REFRESH_SCRIPT = Path(__file__).parent / "refresh_nlm_tokens.py"
-
-
-# ─── AUTH REFRESH ─────────────────────────────────────────────────────────────
-def refresh_auth():
-    result = subprocess.run(
-        ["python3", str(REFRESH_SCRIPT), "--force"],
-        capture_output=True, text=True, timeout=60
-    )
-    print(f"  [auth] {result.stdout.strip()[-100:]}")
-    return result.returncode == 0
+NLM         = os.environ.get("NOTEBOOKLM_CLI") or shutil.which("notebooklm")
+AI_URL      = os.environ.get("ANALYST_LLM_URL", "")
+AI_KEY      = os.environ.get("ANALYST_LLM_API_KEY", "")
+AI_MODEL    = os.environ.get("ANALYST_LLM_MODEL", "")
 
 
 # ─── NLM QUERY ────────────────────────────────────────────────────────────────
@@ -52,10 +40,7 @@ def ask_nlm(notebook_id: str, question: str) -> str:
             if result.returncode != 0:
                 combined = (err or out)[:300]
                 if any(w in combined.lower() for w in ["expired", "authentication", "mismatch", "login"]):
-                    print(f"  [auth] Attempt {attempt+1}: token expired, refreshing...")
-                    refresh_auth()
-                    time.sleep(3)
-                    continue
+                    return f"ERROR: NotebookLM authentication required: {combined}"
                 return f"ERROR: {combined}"
             text = out
             if text.startswith("Answer:"):
@@ -73,14 +58,14 @@ def ask_nlm(notebook_id: str, question: str) -> str:
     return "TIMEOUT_AFTER_RETRIES"
 
 
-# ─── AI GATEWAY CALL (via curl) ───────────────────────────────────────────────
-def llm_call(prompt: str, model: str = "anthropic/claude-sonnet-4.6", max_tokens: int = 600) -> str:
+# ─── OPTIONAL CHAT-COMPLETIONS CALL ──────────────────────────────────────────
+def llm_call(prompt: str, model: str = "", max_tokens: int = 600) -> str:
     """
-    IMPORTANT: Use curl via subprocess, NOT urllib.request.
-    urllib gets HTTP 403 from the AI Gateway.
-    Set Accept-Encoding: identity to prevent gzip decode errors.
-    Model format: anthropic/claude-sonnet-4.6 (period before version, not hyphen).
+    Optional OpenAI-compatible service; no provider or model is assumed.
     """
+    model = model or AI_MODEL
+    if not (AI_URL and AI_KEY and model):
+        return ""
     import tempfile
     body = json.dumps({
         "model": model,
@@ -95,7 +80,7 @@ def llm_call(prompt: str, model: str = "anthropic/claude-sonnet-4.6", max_tokens
     try:
         result = subprocess.run([
             "curl", "-s", "-X", "POST",
-            f"{AI_BASE}/api/v1/chat/completions",
+            AI_URL,
             "-H", f"Authorization: Bearer {AI_KEY}",
             "-H", "Content-Type: application/json",
             "-H", "Accept-Encoding: identity",
@@ -105,7 +90,6 @@ def llm_call(prompt: str, model: str = "anthropic/claude-sonnet-4.6", max_tokens
         if "error" in data:
             code = data["error"].get("code","") if isinstance(data["error"], dict) else ""
             if code == "model_access_denied":
-                # Per AI Gateway instructions: stop, do not retry with different model
                 print(f"  [llm] model_access_denied for {model}. Stopping.")
                 return ""
             print(f"  [llm] Error: {str(data['error'])[:200]}")
@@ -119,11 +103,11 @@ def llm_call(prompt: str, model: str = "anthropic/claude-sonnet-4.6", max_tokens
 
 
 # ─── DYNAMIC QUESTION GENERATOR ──────────────────────────────────────────────
-def gen_followups(category: str, question: str, answer: str, already_asked: list) -> list:
+def gen_followups(subreddit: str, category: str, question: str, answer: str, already_asked: list) -> list:
     if not answer or answer.startswith(("ERROR", "TIMEOUT")):
         return []
     already_str = "\n".join(f"- {q}" for q in already_asked[-15:])
-    prompt = f"""You are analyzing r/personalfinance Reddit data.
+    prompt = f"""You are analyzing r/{subreddit} Reddit data.
 
 CATEGORY: {category}
 QUESTION: {question}
@@ -163,52 +147,25 @@ def synthesize(subreddit: str, all_qa: list) -> str:
         qa_text += f"\n\n## {item['category'].upper()} (Round {item['round']})\n"
         qa_text += f"**Q:** {item['question']}\n\n**A:** {item['answer'][:700]}\n"
 
-    prompt = f"""You have deep research data about r/{subreddit} (Reddit).
+    prompt = f"""You have research answers about r/{subreddit} (Reddit). The answers may be incomplete or wrong; do not present unsupported claims as facts.
 
 {qa_text}
 
-Write a COMPREHENSIVE FIRST-PRINCIPLES ANALYSIS REPORT. Be extremely specific.
-Use this structure:
+Write a specific evidence-calibrated community analysis. Cite source links only if present in the answers. Separate observations from inferences and recommendations. If counts lack denominators, say so. Use this structure:
 
 # r/{subreddit} — Deep Analysis Report
 
-## 1. WHAT GOES VIRAL
-### 1.1 Title Formulas (with real examples)
-### 1.2 Narrative Structures
-### 1.3 Life Events That Always Perform
-### 1.4 Numbers & Dollar Amounts That Resonate
+## Scope and limitations
+## Recurring topics and unmet needs
+## Participation norms and trust signals
+## Sentiment and disagreement
+## Changes over time
+## Representative examples and counterexamples
+## Conclusions and open questions
 
-## 2. WHAT FAILS (Root Causes)
-### 2.1 Fatal Patterns
-### 2.2 Why Posts Get Ignored (psychological reasons)
+Do not invent demographics, moderation rules, post titles, scores, or time trends. Use markdown."""
 
-## 3. SUBREDDIT CULTURE
-### 3.1 Core Values & Worldview
-### 3.2 Heroes & Villains
-### 3.3 Canon Wisdom (top 15 recurring pieces of advice)
-### 3.4 Controversial Fault Lines
-
-## 4. DEMOGRAPHICS & PSYCHOGRAPHICS
-### 4.1 Who Is Here
-### 4.2 Their Fears & Aspirations
-
-## 5. TOPIC LANDSCAPE
-### 5.1 Top 15 Topics (volume + engagement)
-### 5.2 Seasonal Patterns
-
-## 6. EMOTIONAL TRIGGERS
-### 6.1 Emotion Hierarchy
-### 6.2 Transformation & Crisis Posts
-
-## 7. THE VIRAL FORMULA (Step-by-Step Recipe)
-
-## 8. WHAT MAKES r/{subreddit} UNIQUE
-### 8.1 The Social Contract
-### 8.2 Blind Spots
-
-Be SPECIFIC. Cite actual post titles, scores, examples from data. Use markdown."""
-
-    return llm_call(prompt, model="anthropic/claude-sonnet-4.6", max_tokens=5000)
+    return llm_call(prompt, max_tokens=5000)
 
 
 # ─── MAIN ─────────────────────────────────────────────────────────────────────
@@ -219,6 +176,10 @@ def main():
     ap.add_argument("--results",   default="tmp/dynamic_results.json")
     ap.add_argument("--synthesis", default="tmp/synthesis.md")
     args = ap.parse_args()
+    if not NLM:
+        ap.error("NotebookLM CLI not found; set NOTEBOOKLM_CLI or install it on PATH")
+    if not (AI_URL and AI_KEY and AI_MODEL):
+        print("No optional LLM configured: only seed questions will run; use the skill workflow for manual follow-ups.")
 
     results_path = Path(args.results)
 
@@ -237,23 +198,20 @@ def main():
     # Initial auth check
     print("Checking NLM auth...")
     test = ask_nlm(args.notebook, f"How many total posts are in the r/{args.subreddit} notebook?")
-    if test.startswith("ERROR"):
+    if test.startswith(("ERROR", "TIMEOUT")):
         print(f"Auth check failed: {test}")
         sys.exit(1)
     print(f"Auth OK: {test[:100]}")
 
     # ─── SEED QUESTIONS ───────────────────────────────────────────────────────
     SEEDS = [
-        ("Viral Mechanics",    f"What EXACT title structures and narrative hooks appear in r/{args.subreddit} posts with 1000+ upvotes? Give specific real examples."),
-        ("Content Failure",    f"What specific patterns make r/{args.subreddit} posts fail with low scores? Give concrete bad title examples and explain WHY they fail."),
-        ("Subreddit Culture",  f"What are the core VALUES and unwritten rules of r/{args.subreddit}? What does this community believe about money and life?"),
-        ("Emotional Triggers", f"What primary emotions drive the most viral posts on r/{args.subreddit} — fear, relief, pride, outrage, hope? Rank by impact with examples."),
-        ("Topic Landscape",    f"What are the top 15 most common topics on r/{args.subreddit} and which get the highest average engagement vs. just high volume?"),
-        ("Demographics",       f"Who posts on r/{args.subreddit}? Dominant age group, life stage, income, fears, aspirations?"),
-        ("Viral Formula",      f"Based on the full year of data, give me a step-by-step formula for creating a top-performing post on r/{args.subreddit}."),
-        ("Community Norms",    f"What gets removed or heavily downvoted on r/{args.subreddit}? What behaviors does the mod team and community punish?"),
-        ("Monthly Highlights", f"What was the biggest viral post each month over the past year on r/{args.subreddit}? Month-by-month highlights."),
-        ("Success Stories",    f"What types of financial milestone or success posts go viral on r/{args.subreddit}? What format do the best ones use?"),
+        ("Coverage", f"What dates and types of r/{args.subreddit} material are in this notebook, and what important coverage limitations exist?"),
+        ("Topics", f"What recurring discussion topics and questions appear in r/{args.subreddit}? Give counts with denominators if available and source examples."),
+        ("Needs", f"What concrete unmet needs, frustrations, or decisions do people describe in r/{args.subreddit}? Distinguish common from memorable anecdotes."),
+        ("Culture", f"What participation norms and trust signals are visible in r/{args.subreddit}? Separate observed behavior from formal rules not in the sources."),
+        ("Sentiment", f"Where do r/{args.subreddit} participants agree or disagree? What positive, negative, and mixed views have evidence?"),
+        ("Change", f"How did discussions in r/{args.subreddit} change across the notebook's actual date range? Identify possible collection gaps."),
+        ("Counterevidence", f"What examples in r/{args.subreddit} contradict the main patterns, and what claims cannot be supported by this notebook?"),
     ]
 
     print(f"\n{'='*60}\nROUND 1: SEED QUESTIONS\n{'='*60}")
@@ -280,7 +238,7 @@ def main():
     print(f"\n{'='*60}\nROUND 2: DYNAMIC FOLLOW-UPS\n{'='*60}")
     r2_answers = []
     for cat, (pq, pa) in list(r1_answers.items()):
-        fqs = gen_followups(cat, pq, pa, already_asked)
+        fqs = gen_followups(args.subreddit, cat, pq, pa, already_asked)
         print(f"  [{cat}] Generated {len(fqs)} follow-ups")
         for fq in fqs:
             print(f"\n[R2/{cat}] {fq[:70]}...")
@@ -297,7 +255,7 @@ def main():
     # ─── ROUND 3: DEEP DIVES ─────────────────────────────────────────────────
     print(f"\n{'='*60}\nROUND 3: DEEP DIVES\n{'='*60}")
     for cat, q, a in r2_answers[:8]:
-        fqs = gen_followups(cat, q, a, already_asked)
+        fqs = gen_followups(args.subreddit, cat, q, a, already_asked)
         for fq in fqs[:1]:
             print(f"\n[R3/{cat}] {fq[:70]}...")
             ans = ask_nlm(args.notebook, fq)
@@ -314,10 +272,11 @@ def main():
     print(f"Synthesizing {len(good)} Q&A pairs...")
     synthesis = synthesize(args.subreddit, good)
     if synthesis:
+        Path(args.synthesis).parent.mkdir(parents=True, exist_ok=True)
         Path(args.synthesis).write_text(synthesis)
         print(f"Synthesis saved → {args.synthesis} ({len(synthesis):,} chars)")
     else:
-        print("Synthesis failed — check AI Gateway availability.")
+        print("Synthesis unavailable — configure ANALYST_LLM_URL, ANALYST_LLM_API_KEY, and ANALYST_LLM_MODEL, or synthesize manually.")
 
     print(f"\nDone. Total questions: {len(all_results)}, successful: {len(good)}")
 
