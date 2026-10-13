@@ -10,16 +10,28 @@ Six skills for agents (Claude Code, Codex, and similar). Use them alone or as a 
 
 | Skill | What it actually does |
 | --- | --- |
+| [`reddit-brand-narrative`](reddit-brand-narrative/) | Audit how Reddit talks about your brand or product, community by community, over a fixed date range. |
+| [`reddit-icp-discovery`](reddit-icp-discovery/) | Find subreddits where your ideal customer and their problem already show up. Shortlist + evidence, then hand each one to `subreddit-analyst`. |
 | [`subreddit-analyst`](subreddit-analyst/) | Pull **1–2 years** of posts from one subreddit (often **hundreds of thousands** of posts via Arctic Shift), then break down topics, norms, risks, and whether your product fits. One subreddit at a time — never mixed. |
 | [`reddit-scout`](reddit-scout/) | Watch named subreddits on a short loop (**e.g. every hour**) for posts about you, your product, or topics you care about. Scores relevance and can draft reply comments — it does **not** post. |
 | [`reddit-post-writer`](reddit-post-writer/) | Draft an AI post for **one** subreddit, then **stress-test it with digital-twin personas** (7 reviewers) before you see it. One subreddit = one post. Built to sound human, not like an ad. |
-| [`reddit-icp-discovery`](reddit-icp-discovery/) | Find subreddits where your ideal customer and their problem already show up. Shortlist + evidence, then hand each one to `subreddit-analyst`. |
-| [`reddit-brand-narrative`](reddit-brand-narrative/) | Audit how Reddit talks about your brand or product, community by community, over a fixed date range. |
 | [`reddit-daily-brief`](reddit-daily-brief/) | Morning automation: harvest last-24h posts from configured subs, analyze, build a PDF brief, email it (default 7 AM HKT harvest). Needs local setup. |
 
 Each folder has its own `SKILL.md` with inputs, steps, and limits.
 
 ## How to use these skills (in order)
+
+```mermaid
+flowchart TD
+  A[1. Audit presence<br/>reddit-brand-narrative] --> B[2. Find communities<br/>reddit-icp-discovery]
+  B --> C[3. Deep dive each sub<br/>subreddit-analyst<br/>~1–2 years of posts]
+  C --> D[4. Catch new posts fast<br/>reddit-scout<br/>~every 1 hour]
+  C --> E[5. Write viral post<br/>reddit-post-writer<br/>persona simulation]
+  D --> E
+  C --> F[6. Daily pulse<br/>reddit-daily-brief]
+  E --> G[7. Track change<br/>brand-narrative again]
+  F --> G
+```
 
 1. **Audit your presence** — Use `reddit-brand-narrative` to see how Reddit already talks about your brand, product, or narrative (community by community).
 2. **Find communities** — Use `reddit-icp-discovery` to find the subreddits where your customers actually live and discuss their problems.
@@ -33,33 +45,25 @@ Skip what you don’t need. Brand-new product with zero mentions? Start at step 
 
 ## Quick start
 
-```bash
-git clone https://github.com/ndpvt-web/reddit-skills.git
+Copy this repo link into **Claude Code** or **Codex**, then tell the agent what you want in plain language. It will pick the right skill(s) and run them.
+
+```text
+https://github.com/ndpvt-web/reddit-skills
 ```
 
-Copy only the skills you want into your agent skills folder:
+**Examples of what to say**
 
-```bash
-# Claude Code
-mkdir -p ~/.claude/skills
-cp -R reddit-skills/subreddit-analyst ~/.claude/skills/
+> Audit how Reddit talks about **[brand/product]** over the last **[N months]**. Use the skills in this repo.
 
-# Codex
-mkdir -p ~/.codex/skills
-cp -R reddit-skills/subreddit-analyst ~/.codex/skills/
-```
+> Find subreddits where **[customer]** discusses **[problem]** for **[product]**. Then deep-dive the best ones with ~1–2 years of data.
 
-Swap the folder name for any other skill. Start a new agent session if yours needs a restart to see new skills.
+> Every hour, check **r/[subs]** for new posts about **[brand/topic]** and draft replies — don’t post.
 
-**Example prompts**
+> Write a viral post for **r/[subreddit]** about **[situation]**. Simulate with personas first. Goal: **[…]**.
 
-> Use `reddit-icp-discovery` for **[product]** aimed at **[customer]**. Find communities where they discuss **[problem]**. Show evidence, activity, rules, and what to study next. Do not turn member counts into customer forecasts.
+> Give me a daily brief on what people are saying about **[product]** (or in **r/[subs]**).
 
-> Use `subreddit-analyst` on **r/[subreddit]** for **[start date] → [end date]** (e.g. last 1–2 years). Analyze audience needs, culture, rules, and fit for **[product]**. Keep evidence separate from opinion.
-
-> Use `reddit-scout` on **r/[subs]** with a **1h** lookback for posts about **[brand/topic]**. List relevant threads and draft replies only — do not post.
-
-> Use `reddit-post-writer` for **r/[subreddit]**. Situation: **[…]**. Goal: **[…]**. Run the persona simulation, then give me the post plus what to change if anything fails review.
+Optional: clone and install a single skill folder into `~/.claude/skills` or `~/.codex/skills` if you prefer local copies.
 
 ## Results
 
@@ -71,22 +75,15 @@ Using these skills we generated **50M+ views**.
 
 This framework is built to get you the next viral post — research the sub, write for that community, simulate, then ship.
 
-## Rules of thumb
-
-- Research before you promote.
-- Always go research-first **per subreddit** — write for that community, not “Reddit in general.”
-- Treat each subreddit as its own community.
-- Disclose affiliations. Do not invent personal stories.
-- Human reviews before anything goes live. Skills draft and research — they do not post for you.
-- Member count ≠ customers. Keep size, reach, and conversion as separate numbers.
-- Say what window and sources you used. Archives are incomplete.
-
-## Limits
-
-Reddit search and archives miss posts. Rules change — check them on the sub before you participate. Skills do not guarantee full data, upvotes, reach, or sales.
-
-`reddit-daily-brief` needs Mac bridge / cookies / PDF / email setup. Read its `SKILL.md` before installing. You can use the other skills without it.
-
 ## Contributing
 
-PRs welcome. Keep skills reusable across brands, label assumptions, separate evidence from guesses, and document data limits. Do not commit credentials, cookies, tokens, or private run outputs.
+Ideas we want next (PRs welcome):
+
+1. **Content calendar dashboard** — plan and track posts across subreddits from one place.
+2. **Dynamic / per-subreddit personas** — today `reddit-post-writer` simulates a fixed set of 7 agent personalities; make personas dynamic or tuned to each community.
+3. **Strategy playbook (or separate skill)** — document tactics such as:
+   - product comparison posts
+   - indirect product mentions inside a viral topic or an opinionated post about something else
+   - other approaches that usually come out of `subreddit-analyst` from past data (what that community likes / doesn’t like)
+
+Keep skills reusable across brands. Do not commit credentials, cookies, tokens, or private run outputs.
